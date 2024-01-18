@@ -7,10 +7,10 @@ const validacaDono = async (req, res) => {
     const user = await DonoModel.ValidateUserEmail(body.Email)
 
     if (Object.keys(user[0]).length === 0) {
-        const newUser = await userModel.createUser(body)
+        const newUser = await DonoModel.createUser(body)
         return res.status(201).json({ message: 'User created' })
     } else {
-        return res.status(200).json({massage:"Novo não foi criado"})
+        return res.status(200).json({massage:"Novo Dono não foi criado"})
     }
 }
 const loginDono = async(req,res)=>{
