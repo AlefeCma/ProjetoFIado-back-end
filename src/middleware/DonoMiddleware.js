@@ -1,6 +1,7 @@
 
 const verificacaoNome = (req, res, next) => {
     const { body } = req  
+
     if (body.Nome === undefined) {
         res.status(400).json({ mensagem: "E obrigatorio inserir um nome" })
     } else if (body.Nome === '') {
@@ -18,7 +19,20 @@ const verificacaoEmail = (req, res, next) => {
     }
     next()
 }
+const verificacaoSenha = (req,res,next) =>{
+
+    const { body } = req
+
+    if(body.Password === undefined){
+        res.status(400).json({ mensagem: "E obrigatorio inserir um Senha" })
+    }else if(body.Password == ''){
+        res.status(400).json({ mensagem: "E obrigatorio inserir um Senha" })
+    }else if(body.Password.lenght < 8){
+        res.status(400).json({ mensagem: "Senha muito curta" })
+    }
+}
 module.exports = {
     verificacaoNome,
-    verificacaoEmail
+    verificacaoEmail,
+    verificacaoSenha
 }

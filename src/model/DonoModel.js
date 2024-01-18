@@ -23,7 +23,9 @@ const ValidateUserEmail = async (Email) => {
     return userV
 }
 const loginUser = async (Email, Senha) => {
+
     const SenhaCript = await criptografiaSenha.criptografiaSenha(Senha.toString())
+    
     const query = 'SELECT * FROM Dono WHERE Email = ? AND Password = ?'
     const userLoggout = await connection.execute(query, [Email, SenhaCript])
 

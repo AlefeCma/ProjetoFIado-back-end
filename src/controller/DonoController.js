@@ -15,15 +15,16 @@ const validacaDono = async (req, res) => {
 }
 const loginDono = async(req,res)=>{
     const { body } = req
-    console.log(body.Senha)
-    const user = await userModel.loginUser(body.Email,body.Senha)
+
+    const user = await DonoModel.loginUser(body.Email,body.Password)
 
         if (Object.keys(user[0]).length === 0) {
-            return res.status(404).json({ message: 'User not exists' })
+            return res.status(404).json({ message: 'Email ou senha incorretos' })
         } else {
             return res.status(200).json({ message: 'Usuario logado' })
         }
 }
 module.exports = {
-    validacaDono
+    validacaDono,
+    loginDono
 }
