@@ -17,12 +17,12 @@ const loginDono = async(req,res)=>{
     const { body } = req
 
     const user = await DonoModel.loginUser(body.Email,body.Password)
+    if(user === true){
+        res.status(200).json({mensagem:"Usuario logado"})
 
-        if (Object.keys(user[0]).length === 0) {
-            return res.status(404).json({ message: 'Email ou senha incorretos' })
-        } else {
-            return res.status(200).json({ message: 'Usuario logado' })
-        }
+    }else{
+        res.status(404).json({mensagem:"Usuario não encontrado"})
+    }
 }
 module.exports = {
     validacaDono,

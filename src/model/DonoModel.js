@@ -23,14 +23,21 @@ const ValidateUserEmail = async (Email) => {
     return userV
 }
 const loginUser = async (Email, Senha) => {
+console.log(Senha)
+    const query = 'SELECT * FROM Dono WHERE Email = ?';
+    const users = await connection.execute(query, [Email]);
 
-    const SenhaCript = await criptografiaSenha.criptografiaSenha(Senha.toString())
+    console.log(users[0])
+    const user = users[0];
+
+    console.log(user)
+    console.log(user.Password)
+    const SenhaVerificada = await criptografiaSenha.verificarSenha(Senha.toString(), user[0].Password);
     
-    const query = 'SELECT * FROM Dono WHERE Email = ? AND Password = ?'
-    const userLoggout = await connection.execute(query, [Email, SenhaCript])
-
-    return userLoggout
+    console.log(SenhaVerificada);
+    return SenhaVerificada;
 }
+
 module.exports = {
     createUser,
     ValidateUserEmail,

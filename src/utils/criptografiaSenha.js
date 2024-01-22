@@ -10,6 +10,17 @@ const criptografiaSenha = async (senha) => {
         console.log('error crpito');
     }    
 }
+
+const verificarSenha = async (senha, hash) => {
+    try {
+        const resultado = await bcrypt.compare(senha, hash);
+        return resultado;
+    } catch {
+        console.log('Erro ao verificar a senha');
+    }
+}
+
 module.exports = {
-    criptografiaSenha
+    criptografiaSenha,
+    verificarSenha
 };
