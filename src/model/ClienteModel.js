@@ -9,8 +9,8 @@ const cadastroCliente = async (cliente) => {
     return novoCliente
 }
 const listacliente = async (id) => {
-    const query = 'select * from Clientes where DonoId=?'
-    const lista = await connection.execute(query[id])
+    const query = 'select * from Clientes where DonoID=?'
+    const lista = await connection.execute(query,[id])
     return lista
 }
 module.exports = {

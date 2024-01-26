@@ -18,7 +18,8 @@ const criarCliente = async (req, res) => {
 
 }
 const listaCliente = async (req,res)=>{
-    const lista = await clienteModel.listacliente()
+    const {body} = req
+    const lista = await clienteModel.listacliente(body.DonoID)
     return res.status(200).json(lista[0])
 }
 module.exports = {
