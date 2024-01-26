@@ -8,11 +8,12 @@ const cadastroCliente = async (cliente) => {
 
     return novoCliente
 }
-const listacliente = async () => {
-    const query = 'select * from Cliente'
-    const lista = connection.execute(query)
+const listacliente = async (id) => {
+    const query = 'select * from Clientes where DonoId=?'
+    const lista = await connection.execute(query[id])
     return lista
 }
 module.exports = {
-    cadastroCliente
+    cadastroCliente,
+    listacliente
 }
