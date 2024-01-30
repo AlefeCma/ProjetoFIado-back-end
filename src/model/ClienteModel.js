@@ -17,9 +17,16 @@ const listacliente = async (id) => {
 
     return lista
 }
+const atualizarCliente = async (id,nome) =>{
+    const query = 'UPDATE Clientes SET Nome = ? WHERE ID = ?'
+    const clienteAtualizado = connection.execute(query,[nome,id])
+    
+    return clienteAtualizado
+}
 
 
 module.exports = {
     cadastroCliente,
-    listacliente
+    listacliente,
+    atualizarCliente
 }

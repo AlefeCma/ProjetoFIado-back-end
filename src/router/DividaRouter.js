@@ -7,6 +7,4 @@ const router = express.Router()
 router.post('/criar/divida', dividaController.criarDivida)
 
 
-module.exports = {
-    router
-}
+module.exports = router

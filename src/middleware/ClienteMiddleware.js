@@ -6,6 +6,7 @@ const validarNome = (req,res,next)=>{
     }else if(body.Nome=== ''){
         res.status(200).json({mensagem:'Campo Nome deve ser preenchido'})
     }
+    next()
 }
 module.exports = {
     validarNome
