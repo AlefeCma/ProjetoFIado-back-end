@@ -13,15 +13,20 @@ const createUser = async (user) => {
 
     return createdUser
 }
+
 const ValidateUserEmail = async (Email) => {
+    try {
+        const query = 'SELECT * FROM Dono WHERE Email = ?';
 
+        const userV = await connection.execute(query, [Email])
 
-    const query = 'SELECT * FROM Dono WHERE Email = ?';
+        return userV
+    } catch (error) {
+        console.log('error na validação de email' + error)
+    }
 
-    const userV = await connection.execute(query, [Email])
-
-    return userV
 }
+
 const loginUser = async (Email, Senha) => {
 
     const query = 'SELECT * FROM Dono WHERE Email = ?';
@@ -35,18 +40,20 @@ const loginUser = async (Email, Senha) => {
 
     return SenhaVerificada;
 }
+
 const validacaoId = async (id) => {
     const query = 'select * from Dono where(Id)=?'
     const donoid = await connection.execute(query, [id])
     return donoid
 }
+
 const atualizarNome = async (Nome, id) => {
 
     try {
         const query = 'UPDATE Dono SET Nome = ? WHERE ID = ?'
         const nomeAtualizado = await connection.execute(query, [Nome, id])
         return nomeAtualizado
-        
+
     } catch (error) {
         console.log('erro modelDono' + error)
     }
