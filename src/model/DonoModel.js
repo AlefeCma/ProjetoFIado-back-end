@@ -40,6 +40,12 @@ const validacaoId = async (id)=>{
     const donoid = await connection.execute(query,[id])
     return donoid
 }
+const atualizarNome = async (Nome,id) => {
+
+    const query = 'UPDATE Dono SET Nome = ? WHERE ID = ?'
+    const nomeAtualizado = connection.execute(query,[Nome,id])
+
+}
 
 module.exports = {
     createUser,
