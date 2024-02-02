@@ -13,17 +13,25 @@ const validacaDono = async (req, res) => {
         return res.status(200).json({ massage: "Novo Dono não foi criado" })
     }
 }
+
 const loginDono = async (req, res) => {
     const { body } = req
 
-    const user = await DonoModel.loginUser(body.Email, body.Password)
-    if (user === true) {
-        res.status(200).json({ mensagem: "Usuario logado" })
+    try {
+        const user = await DonoModel.loginUser(body.Email, body.Password)
 
-    } else {
-        res.status(404).json({ mensagem: "Usuario não encontrado" })
+        if (user === true) {
+            res.status(200).json({ mensagem: "Usuario logado" })
+
+        } else {
+            res.status(404).json({ mensagem: "Usuario não encontrado" })
+        }
+    } catch (error) {
+        console.log('error no login DonoController' + error)
     }
+
 }
+
 const atualizarNome = async (req, res) => {
     const { body } = req
 
@@ -35,6 +43,7 @@ const atualizarNome = async (req, res) => {
     }
 
 }
+
 module.exports = {
     validacaDono,
     loginDono,
