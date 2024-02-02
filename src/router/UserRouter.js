@@ -7,5 +7,6 @@ const { verificacaoNome, verificacaoEmail, verificacaoSenha } = DonoMiddleware
 
 router.post('/cadastro', verificacaoNome, verificacaoEmail, DonoController.validacaDono)
 router.post('/login', DonoController.loginDono)
+router.put('/atualizarNome',DonoController.atualizarNome)
 
 module.exports = router 

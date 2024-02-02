@@ -44,9 +44,9 @@ const atualizarNome = async (Nome, id) => {
 
     try {
         const query = 'UPDATE Dono SET Nome = ? WHERE ID = ?'
-        const nomeAtualizado = connection.execute(query, [Nome, id])
-
+        const nomeAtualizado = await connection.execute(query, [Nome, id])
         return nomeAtualizado
+        
     } catch (error) {
         console.log('erro modelDono' + error)
     }
@@ -56,5 +56,6 @@ module.exports = {
     createUser,
     ValidateUserEmail,
     loginUser,
-    validacaoId
+    validacaoId,
+    atualizarNome
 }
