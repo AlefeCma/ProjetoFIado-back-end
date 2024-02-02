@@ -35,16 +35,21 @@ const loginUser = async (Email, Senha) => {
 
     return SenhaVerificada;
 }
-const validacaoId = async (id)=>{
+const validacaoId = async (id) => {
     const query = 'select * from Dono where(Id)=?'
-    const donoid = await connection.execute(query,[id])
+    const donoid = await connection.execute(query, [id])
     return donoid
 }
-const atualizarNome = async (Nome,id) => {
+const atualizarNome = async (Nome, id) => {
 
-    const query = 'UPDATE Dono SET Nome = ? WHERE ID = ?'
-    const nomeAtualizado = connection.execute(query,[Nome,id])
+    try {
+        const query = 'UPDATE Dono SET Nome = ? WHERE ID = ?'
+        const nomeAtualizado = connection.execute(query, [Nome, id])
 
+        return nomeAtualizado
+    } catch (error) {
+        console.log('erro modelDono' + error)
+    }
 }
 
 module.exports = {
