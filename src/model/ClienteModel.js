@@ -17,11 +17,20 @@ const listacliente = async (id) => {
 
     return lista
 }
-const atualizarCliente = async (id,nome) =>{
+const atualizarCliente = async (id, nome) => {
     const query = 'UPDATE Clientes SET Nome = ? WHERE ID = ?'
-    const clienteAtualizado = connection.execute(query,[nome,id])
-    
+    const clienteAtualizado = connection.execute(query, [nome, id])
+
     return clienteAtualizado
+}
+const apagarCliente = async (id) => {
+    try {
+        const query = 'DELETE FROM Clientes WHERE ID=?'
+        const clienteApagado = connection.execute(query, [id])
+    } catch (erro) {
+        console.log('ClienteModel erro' + erro)
+    }
+
 }
 
 

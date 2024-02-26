@@ -28,6 +28,7 @@ const atualizarCliente = async (req, res) => {
     const atualizarCliente = clienteModel.atualizarCliente(body.ID, body.Nome)
     return res.status(200).json({ mensagem: 'Cliente atualizado' })
 }
+cosnt apagarCliente = async
 module.exports = {
     criarCliente,
     listaCliente,
