@@ -28,9 +28,15 @@ const atualizarCliente = async (req, res) => {
     const atualizarCliente = clienteModel.atualizarCliente(body.ID, body.Nome)
     return res.status(200).json({ mensagem: 'Cliente atualizado' })
 }
-cosnt apagarCliente = async
+const apagarCliente = async (req, res) => {
+    const { body } = req
+    const apagarCliente = clienteModel.apagarCliente(body.id)
+
+    return res.status(204).json({ mensagem: 'Usuario apagado' })
+}
 module.exports = {
     criarCliente,
     listaCliente,
-    atualizarCliente
+    atualizarCliente,
+    apagarCliente
 }

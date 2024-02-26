@@ -37,5 +37,6 @@ const apagarCliente = async (id) => {
 module.exports = {
     cadastroCliente,
     listacliente,
-    atualizarCliente
+    atualizarCliente,
+    apagarCliente
 }
