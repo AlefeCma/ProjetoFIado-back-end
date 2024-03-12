@@ -8,4 +8,5 @@ const router = express.Router()
 router.post('/cliente/cadastro', clienteController.criarCliente)
 router.post('/clientes', clienteController.listaCliente)
 router.put('/cliente/atualizar',clienteMiddleware.validarNome,clienteController.atualizarCliente)
+router.delete('/Cliente',clienteController.apagarCliente)
 module.exports = router

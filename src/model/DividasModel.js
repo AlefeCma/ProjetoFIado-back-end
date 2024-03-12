@@ -6,6 +6,7 @@ const criarDivida = async (ClienteID, Valor) => {
     const divida = await connection.execute(query, [ClienteID, Valor, Data]);
     return divida
 }
+
 module.exports= {
     criarDivida
 }
