@@ -17,8 +17,7 @@ Além disso, o sistema também permite o gerenciamento de dívidas associadas a 
 
 ## Como usar
 
-Para usar este sistema, você precisará ter o Node.js instalado em seu computador. Depois de clonar o repositório, execute `npm run dev` para instalar todas as dependências necessárias.
+Para usar este sistema, você precisará ter o Node.js instalado em seu computador. Depois de clonar o repositório, execute `npm install` para instalar todas as dependências necessárias.
 
 Depois disso, você pode iniciar o servidor com `npm run dev` e acessar o sistema em seu navegador em `http://localhost:3333`.
-
 
