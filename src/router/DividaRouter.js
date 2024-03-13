@@ -5,6 +5,6 @@ const dividaController = require('../controller/DividasController')
 const router = express.Router()
 
 router.post('/criar/divida', dividaController.criarDivida)
-
+router.put('/divida',)
 
 module.exports = router
